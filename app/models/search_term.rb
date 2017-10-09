@@ -23,6 +23,7 @@ class SearchTerm < ApplicationRecord
   end
 
   private
+
   def downcase_content
     self.content = self.content.downcase
   end
