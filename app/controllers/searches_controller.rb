@@ -14,6 +14,7 @@ class SearchesController < ApplicationController
   def create
     search_term = SearchTerm.find_or_create_by!(content: params[:content])
     @search = search_term.searches.create
+    search_term.touch
     redirect_to search_path(@search)
   rescue ActiveRecord::RecordInvalid => e
     flash[:danger] = e.to_s
