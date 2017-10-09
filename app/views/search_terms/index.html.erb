@@ -1,0 +1,11 @@
+<%= form_tag(search_terms_path, method: :get) do %>
+  <%= label_tag(:order, 'Sort By') %>
+  <%= select_tag(:order, options_for_select([['Date', 'date'], ['Terms', 'terms']], params[:order])) %>
+  <%= submit_tag('Sort') %>
+<% end %>
+
+<ul>
+  <% @search_terms.each do |search_term| %>
+    <%= render partial: 'search_term', locals: { search_term: search_term } %>
+  <% end %>
+</ul>
