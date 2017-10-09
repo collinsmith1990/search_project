@@ -1,7 +1,12 @@
 <%= form_tag(search_terms_path, method: :get) do %>
   <%= label_tag(:order, 'Sort By') %>
-  <%= select_tag(:order, options_for_select([['Date', 'date'], ['Terms', 'terms']], params[:order])) %>
+  <%= select_tag(:order, options_for_select([['Date', 'date'], ['Terms', 'terms'], ['Count', 'count']], params[:order])) %>
   <%= submit_tag('Sort') %>
+<% end %>
+
+<%= form_tag(searches_path) do %>
+  <%= text_field_tag(:content) %>
+  <%= submit_tag('Search') %>
 <% end %>
 
 <ul>

@@ -1,0 +1,7 @@
+<ul>
+  <% @search.search_term.searches.order('created_at DESC').each do |search| %>
+    <li>
+      <%= search.created_at.to_formatted_s(:long) %>
+    </li>
+  <% end %>
+<ul>
