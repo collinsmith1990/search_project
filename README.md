@@ -1,24 +1,19 @@
-# README
+# SEARCH PROJECT
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
+A simple app to search for gifs using the Giphy API.
 
-Things you may want to cover:
+[link to app](https://mighty-falls-40096.herokuapp.com/)
 
-* Ruby version
+Setup:
 
-* System dependencies
+* bundle install
 
-* Configuration
+* rails db:create db:migrate
 
-* Database creation
+* Go to https://developers.giphy.com/ to create an account and receive an API
+key.
+ 
+* Add an environment variable named GIPHY_API_KEY set to the value of your API
+key
 
-* Database initialization
-
-* How to run the test suite
-
-* Services (job queues, cache servers, search engines, etc.)
-
-* Deployment instructions
-
-* ...
+* rails s
