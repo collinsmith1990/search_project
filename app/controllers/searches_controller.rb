@@ -3,10 +3,11 @@ class SearchesController < ApplicationController
     @search = Search.find(params[:id])
     @gifs = Giphy.new.search(@search.search_term.content)
     if @gifs.empty?
-      flash.now[:danger] = 'No Gifs Found'
+      flash[:danger] = 'No Gifs Found'
+      redirect_to search_terms_path
     end
-  rescue ActiveRecord::RecordNotFound
-    flash.now[:danger] = 'Search id not found'
+  rescue ActiveRecord::RecordNotFound => e
+    flash[:danger] = e.to_s
     redirect_to search_terms_path
   end
 

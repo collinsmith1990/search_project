@@ -16,10 +16,5 @@
 
 <div class="col-sm-9">
   <h4><small>Search Gifs</small></h4>
-  <%= form_tag(searches_path) do %>
-    <div class='input-group'>
-      <%= text_field_tag(:content, '', { class: 'form-control' }) %>
-      <%= submit_tag('Search', { class: 'btn btn-primary' }) %>
-    </div>
-  <% end %>
+  <%= render partial: 'searches/form' %>
 </div>

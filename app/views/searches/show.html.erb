@@ -1,9 +1,10 @@
 <div class="col-sm-3 sidenav">
+  <h4>Giphy Search</h4>
   <%= link_to "back", search_terms_path, { class: 'btn btn-primary' } %>
   <ul class="nav nav-pills flex-column">
     <% @search.search_term.searches.order('created_at DESC').each do |search| %>
       <li>
-        <%= search.created_at.to_formatted_s(:long) %>
+        <%= search.created_at.strftime('%m/%d/%y at %I:%M %p') %>
       </li>
     <% end %>
   </ul><br>
@@ -11,6 +12,7 @@
 
 <div class="col-sm-9">
   <h4><small>Search Gifs</small></h4>
+  <%= render partial: 'searches/form' %>
   <ul>
     <% @gifs.each_slice(2) do |batch| %>
       <div class='row'>
