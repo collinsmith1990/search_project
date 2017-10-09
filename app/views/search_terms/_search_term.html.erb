@@ -1,7 +1,6 @@
-<li>
-  <%=  %>
+<li class='nav-item'>
   <%= form_tag(searches_path) do %>
     <%= hidden_field_tag(:content, search_term.content) %>
-    <%= submit_tag("#{search_term.content} (#{search_term.searches.count})") %>
+    <%= submit_tag("#{search_term.content.titleize} (#{search_term.searches.count})", { class: 'search-link' }) %>
   <% end %>
 </li>

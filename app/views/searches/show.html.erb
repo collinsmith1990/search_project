@@ -1,13 +1,23 @@
-<%= link_to "back", search_terms_path %>
-<ul>
-  <% @search.search_term.searches.order('created_at DESC').each do |search| %>
-    <li>
-      <%= search.created_at.to_formatted_s(:long) %>
-    </li>
-  <% end %>
-<ul>
-<ul>
-  <% @gifs.each do |gif| %>
-    <%= render partial: 'gif', locals: { gif: gif } %>
-  <% end %>
-<ul>
+<div class="col-sm-3 sidenav">
+  <%= link_to "back", search_terms_path, { class: 'btn btn-primary' } %>
+  <ul class="nav nav-pills flex-column">
+    <% @search.search_term.searches.order('created_at DESC').each do |search| %>
+      <li>
+        <%= search.created_at.to_formatted_s(:long) %>
+      </li>
+    <% end %>
+  </ul><br>
+</div>
+
+<div class="col-sm-9">
+  <h4><small>Search Gifs</small></h4>
+  <ul>
+    <% @gifs.each_slice(2) do |batch| %>
+      <div class='row'>
+        <% batch.each do |gif| %>
+          <%= render partial: 'gif', locals: { gif: gif } %>
+        <% end %>
+      </div>
+    <% end %>
+  <ul>
+</div>

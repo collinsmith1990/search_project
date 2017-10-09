@@ -9,8 +9,12 @@ class Giphy
 
   def search(query)
     data = self.class.get("/v1/gifs/search?q=#{query}", @options).parsed_response['data']
-    data.map do |gif|
-      Gif.new(gif)
+    if data
+      data.map do |gif|
+        Gif.new(gif)
+      end
+    else
+      []
     end
   end
 end
