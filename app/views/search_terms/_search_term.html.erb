@@ -1,3 +1,7 @@
 <li>
-  <%= "#{search_term.content} (#{search_term.searches.count})" %>
+  <%=  %>
+  <%= form_tag(searches_path) do %>
+    <%= hidden_field_tag(:content, search_term.content) %>
+    <%= submit_tag("#{search_term.content} (#{search_term.searches.count})") %>
+  <% end %>
 </li>

@@ -1,7 +1,13 @@
+<%= link_to "back", search_terms_path %>
 <ul>
   <% @search.search_term.searches.order('created_at DESC').each do |search| %>
     <li>
       <%= search.created_at.to_formatted_s(:long) %>
     </li>
+  <% end %>
+<ul>
+<ul>
+  <% @gifs.each do |gif| %>
+    <%= render partial: 'gif', locals: { gif: gif } %>
   <% end %>
 <ul>
